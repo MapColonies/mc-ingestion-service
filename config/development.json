@@ -1,0 +1,31 @@
+{
+  "host": {
+    "port": 3000
+  },
+  "storage": {
+    "engine": "S3",
+    "S3": {
+      "endpoint": "127.0.0.1:9000",
+      "accessKeyId": "minioadmin",
+      "secretAccessKey": "minioadmin",
+      "bucket": "images",
+      "sslEnabled": false,
+      "signatureVersion": "v4",
+      "region": "",
+      "apiVersion": "2006-03-01"
+    },
+    "FS": {
+      "uploadRoot": "D:/tmp"
+    }
+  },
+  "dependentServices": {
+    "imageIndexerBaseUrl": "http://localhost:3001/images"
+  },
+  "logger": {
+    "level": "debug",
+    "logPath": "./logger/error.log"
+  },
+  "validation": {
+    "schemaSourceRoot": "http://localhost/Schema/"
+  }
+}
