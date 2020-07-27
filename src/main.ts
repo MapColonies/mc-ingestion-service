@@ -16,7 +16,7 @@ async function bootstrap() {
 
   //swagger configuration
   const options = new DocumentBuilder()
-    .setTitle('Upload Service')
+    .setTitle('Ingestion  Service')
     .setDescription('api for uploading rasters and metadata')
     .setVersion('1.0')
     .build();

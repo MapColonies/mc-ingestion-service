@@ -1,6 +1,4 @@
-
-  
- # MC-Upload-Service
+# MC-Ingestion -Service
 
 ## Description
 
@@ -37,4 +35,3 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
-
