@@ -2,7 +2,7 @@
 import { HttpService, Inject, HttpException } from '@nestjs/common';
 import { AxiosResponse, AxiosError } from 'axios';
 import { Observable } from 'rxjs';
-import { Logger } from '../logger/Logger';
+import { MCLogger } from '@map-colonies/mc-logger';
 
 export abstract class HttpClient {
   constructor(protected baseUrl?: string) {}
@@ -10,8 +10,8 @@ export abstract class HttpClient {
   @Inject(HttpService)
   private readonly httpClient: HttpService;
 
-  @Inject(Logger)
-  protected readonly logger: Logger;
+  @Inject(MCLogger)
+  protected readonly logger: MCLogger;
 
   protected async post<T>(url: string, data?: any): Promise<AxiosResponse<T>> {
     if (this.baseUrl) {

@@ -1,15 +1,15 @@
+import { Injectable } from '@nestjs/common';
+import multer from 'multer';
+import { MCLogger } from '@map-colonies/mc-logger';
 import { S3StorageBuilder } from './Builders/S3StorageBuilder';
 import { FileSystemStorageBuilder } from './Builders/FileSystemStorageBuilder';
-import multer from 'multer';
-import { Logger } from '../logger/Logger';
-import { ConfigService } from 'src/Modules/configuration/ConfigService';
-import { Injectable } from '@nestjs/common';
+import { ConfigService } from '../configuration/ConfigService';
 
 @Injectable()
 export class StorageEngineFactory {
   private instance: multer.StorageEngine;
 
-  getStorage(config: ConfigService, logger: Logger): multer.StorageEngine {
+  getStorage(config: ConfigService, logger: MCLogger): multer.StorageEngine {
     if (!this.instance) {
       this.instance = this.createStorage(config, logger);
     }
@@ -18,7 +18,7 @@ export class StorageEngineFactory {
 
   private createStorage(
     config: ConfigService,
-    logger: Logger
+    logger: MCLogger
   ): multer.StorageEngine {
     logger.info(
       `StorageEngineFactory - createStorage - storage engine: ${config.get(

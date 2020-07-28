@@ -7,7 +7,7 @@ import {
   Injectable,
 } from '@nestjs/common';
 import { Request, Response } from 'express';
-import { Logger } from '../Modules/logger/Logger';
+import { MCLogger } from '@map-colonies/mc-logger';
 import { ApiHttpResponse, ApiHttpError } from 'mc-model-types';
 
 type ErrorResponse = {
@@ -18,7 +18,7 @@ type ErrorResponse = {
 @Catch()
 @Injectable()
 export class ErrorHandler implements ExceptionFilter {
-  constructor(private logger: Logger) {}
+  constructor(private logger: MCLogger) {}
 
   catch(exception: unknown, host: ArgumentsHost): void {
     const ctx = host.switchToHttp();

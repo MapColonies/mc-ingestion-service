@@ -2,14 +2,14 @@ import { S3 } from 'aws-sdk';
 import * as _ from 'lodash';
 import * as multer from 'multer';
 import * as multerS3 from 'multer-s3';
-import { Logger } from 'src/Modules/logger/Logger';
-import { ConfigService } from 'src/Modules/configuration/ConfigService';
+import { MCLogger } from '@map-colonies/mc-logger';
+import { ConfigService } from '../../configuration/ConfigService';
 
 export class S3StorageBuilder {
   private s3Client;
   private bucket;
 
-  constructor(private config: ConfigService, private logger: Logger) {
+  constructor(private config: ConfigService, private logger: MCLogger) {
     this.s3Client = this.createS3Client();
     this.bucket = this.config.get('storage.S3.bucket');
   }

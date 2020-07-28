@@ -1,16 +1,16 @@
 import { Injectable, BadRequestException } from '@nestjs/common';
 import { ApiHttpResponse, ImageMetadata } from 'mc-model-types';
+import { MCLogger } from '@map-colonies/mc-logger';
 import { UpdateUploadRequest } from '../Models/UpdateUploadRequest.entity';
-import { Logger } from '../../logger/Logger';
 import { CreateUploadRequest } from '../Models/CreateUploadRequest.entity';
-import { ImageIndexerHttpClient } from 'src/Modules/service-clients/ImageIndexer/ImageIndexerHttpClient';
+import { ImageIndexerHttpClient } from '../../service-clients/ImageIndexer/ImageIndexerHttpClient';
 import { IUploadedFiles } from '../Models/IUploadedFiles';
 
 @Injectable()
 export class UploadService {
   constructor(
-    private logger: Logger,
-    private indexer: ImageIndexerHttpClient
+    private indexer: ImageIndexerHttpClient,
+    private logger: MCLogger
   ) {}
 
   create(request: CreateUploadRequest, files: IUploadedFiles): ApiHttpResponse {

@@ -1,11 +1,11 @@
 import { NestFactory } from '@nestjs/core';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+import { ValidationPipe } from '@nestjs/common';
+import { MCLogger } from '@map-colonies/mc-logger';
 import { AppModule } from './app.module';
 import { ErrorHandler } from './Middleware/ErrorHandler';
 import { NestLogger } from './Modules/logger/NestLogger';
-import { Logger } from './Modules/logger/Logger';
 import { ConfigService } from './Modules/configuration/ConfigService';
-import { ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -20,7 +20,7 @@ async function bootstrap() {
     .setDescription('api for uploading rasters and metadata')
     .setVersion('1.0')
     .build();
-  const logger = app.get(Logger);
+  const logger = app.get(MCLogger);
   const config = app.get(ConfigService);
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('api', app, document);
