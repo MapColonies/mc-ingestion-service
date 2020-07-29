@@ -1,6 +1,6 @@
 import { HttpClient } from '../HttpClient';
 import { Injectable } from '@nestjs/common';
-import { ConfigService } from 'src/Modules/configuration/ConfigService';
+import { ConfigService } from '../../configuration/ConfigService';
 import { ApiHttpResponse, ImageMetadata } from 'mc-model-types';
 
 @Injectable()

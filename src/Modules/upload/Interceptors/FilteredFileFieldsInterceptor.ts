@@ -12,10 +12,10 @@ import {
 import { FileFieldsInterceptor } from '@nestjs/platform-express';
 import { Observable } from 'rxjs';
 import { Reflector, ModuleRef } from '@nestjs/core';
+import { MCLogger } from '@map-colonies/mc-logger';
 import { IFileFilter } from '../Models/IFileFilter';
 import { StorageEngineFactory } from '../../storage/StorageEngineFactory';
 import { ConfigService } from '../../configuration/ConfigService';
-import { Logger } from '../../logger/Logger';
 import {
   FILE_FILTER_KEY,
   FILE_UPLOAD_FILEDS_KEY,
@@ -27,7 +27,7 @@ export class FilteredFileFieldsInterceptor implements NestInterceptor {
     private moduleRef: ModuleRef,
     private reflector: Reflector,
     private config: ConfigService,
-    private logger: Logger,
+    private logger: MCLogger,
     private se: StorageEngineFactory
   ) {}
 

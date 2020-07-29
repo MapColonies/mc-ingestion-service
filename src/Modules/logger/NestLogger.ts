@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import { Logger } from './Logger';
+import { MCLogger } from '@map-colonies/mc-logger';
 
 export class NestLogger {
-  constructor(private logger: Logger) {}
+  constructor(private logger: MCLogger) {}
 
   log(message: any, context?: string): any {
-    this.logger.log('info', `[${context}] ${message}`);
+    this.logger.info(`[${context}] ${message}`);
   }
 
   error(message: any, trace?: string, context?: string): any {
@@ -21,6 +21,6 @@ export class NestLogger {
   }
 
   verbose?(message: any, context?: string): any {
-    this.logger.log('verbose', `[${context}] ${message}`);
+    this.logger.verbose(`[${context}] ${message}`);
   }
 }

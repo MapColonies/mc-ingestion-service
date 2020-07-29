@@ -1,9 +1,24 @@
 import { Module, Global } from '@nestjs/common';
-import { Logger } from './Logger';
+import { MCLogger } from '@map-colonies/mc-logger';
+import { readFileSync } from 'fs';
+import * as config from 'config';
+import { join } from 'path';
+
+const getLogger = () => {
+  const loggerConfig = config.get('logger');
+  const packagePath = join(__dirname, '../../../package.json');
+  const packageData = readFileSync(packagePath, 'utf-8');
+  const service = JSON.parse(packageData);
+
+  return new MCLogger(loggerConfig, service);
+};
 
 @Global()
 @Module({
-  providers: [Logger],
-  exports: [Logger],
+  providers: [
+    { provide: MCLogger, useValue: getLogger() },
+    { provide: 'Logger', useExisting: MCLogger },
+  ],
+  exports: [MCLogger, 'Logger'],
 })
 export class LoggerModule {}

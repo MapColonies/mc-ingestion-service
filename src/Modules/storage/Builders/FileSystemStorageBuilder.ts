@@ -2,11 +2,11 @@ import * as multer from 'multer';
 import { normalize, join } from 'upath';
 import { exists } from 'fs';
 import * as fse from 'fs-extra';
-import { Logger } from '../../logger/Logger';
-import { ConfigService } from 'src/Modules/configuration/ConfigService';
+import { MCLogger } from '@map-colonies/mc-logger';
+import { ConfigService } from '../../configuration/ConfigService';
 
 export class FileSystemStorageBuilder {
-  constructor(private config: ConfigService, private logger: Logger) {}
+  constructor(private config: ConfigService, private logger: MCLogger) {}
 
   CreateStorage(): multer.StorageEngine {
     return multer.diskStorage({
