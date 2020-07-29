@@ -23,6 +23,7 @@
   "dependencies": {
     "@godaddy/terminus": "^4.4.1",
     "@map-colonies/mc-logger": "^1.1.0",
+    "@map-colonies/mc-probe": "file:../mc-probe/map-colonies-mc-probe-0.0.8.tgz",
     "@nestjs/common": "^7.0.0",
     "@nestjs/core": "^7.0.0",
     "@nestjs/platform-express": "^7.0.0",
