@@ -23,7 +23,7 @@
   },
   "logger": {
     "level": "debug",
-    "logPath": "./logger/error.log"
+    "log2file": false
   },
   "validation": {
     "schemaSourceRoot": "http://localhost/Schema/"
