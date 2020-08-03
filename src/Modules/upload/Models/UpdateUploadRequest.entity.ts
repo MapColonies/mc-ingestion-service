@@ -1,8 +1,8 @@
 import { ApiProperty } from '@nestjs/swagger';
+import { ImageMetadata } from '@map-colonies/mc-model-types';
+import { PropertySchema } from '@map-colonies/mc-nest-schema-validator';
 import { IsOptional, ValidateNested, IsDefined } from 'class-validator';
-import { ImageMetadata } from 'mc-model-types';
 import { TransformMultipartObject } from '../Decorators/TransformMultipartObject';
-import { PropertySchema } from 'mc-nest-schema-validator';
 
 export class UpdateUploadRequest {
   @IsDefined()
