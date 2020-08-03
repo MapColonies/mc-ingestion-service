@@ -6,7 +6,12 @@ describe('UpdateFileFilter', () => {
   let filter: UpdateFileFilter;
   const existsMock = jest.fn();
   const callback = jest.fn();
-  const requestMock = { body: { id: 'testId' } };
+  const imageId = 'testId';
+  const requestMock = {
+    body: {
+      additionalData: `{"id": "${imageId}" }`,
+    },
+  };
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -31,7 +36,7 @@ describe('UpdateFileFilter', () => {
     await filter.filter(requestMock, null, callback);
 
     expect(existsMock).toBeCalledTimes(1);
-    expect(existsMock).toBeCalledWith(requestMock.body.id);
+    expect(existsMock).toBeCalledWith(imageId);
 
     expect(callback).toBeCalledTimes(1);
     expect(callback).toBeCalledWith(null, true);
@@ -44,7 +49,7 @@ describe('UpdateFileFilter', () => {
     await filter.filter(requestMock, null, callback);
 
     expect(existsMock).toBeCalledTimes(1);
-    expect(existsMock).toBeCalledWith(requestMock.body.id);
+    expect(existsMock).toBeCalledWith(imageId);
 
     expect(callback).toBeCalledTimes(1);
     expect(callback).toBeCalledWith(null, false);
