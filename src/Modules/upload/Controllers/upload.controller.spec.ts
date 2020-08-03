@@ -1,7 +1,10 @@
 import { Test, TestingModule } from '@nestjs/testing';
+import { MCLogger } from '@map-colonies/mc-logger';
 import { UploadController } from './upload.controller';
 import { UploadService } from '../Services/Upload.service';
 import { ImageIndexerHttpClient } from '../../service-clients/ImageIndexer/ImageIndexerHttpClient';
+import { ConfigService } from '../../configuration/ConfigService';
+import { StorageEngineFactory } from '../../storage/StorageEngineFactory';
 
 describe('Upload Controller', () => {
   let controller: UploadController;
@@ -12,6 +15,9 @@ describe('Upload Controller', () => {
       providers: [
         { provide: UploadService, useValue: {} },
         { provide: ImageIndexerHttpClient, useValue: {} },
+        { provide: ConfigService, useValue: {} },
+        { provide: MCLogger, useValue: {} },
+        { provide: StorageEngineFactory, useValue: {} },
       ],
     }).compile();
 

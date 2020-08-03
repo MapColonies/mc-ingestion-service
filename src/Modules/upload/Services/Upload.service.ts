@@ -1,5 +1,5 @@
 import { Injectable, BadRequestException } from '@nestjs/common';
-import { ApiHttpResponse, ImageMetadata } from 'mc-model-types';
+import { ApiHttpResponse, ImageMetadata } from '@map-colonies/mc-model-types';
 import { MCLogger } from '@map-colonies/mc-logger';
 import { UpdateUploadRequest } from '../Models/UpdateUploadRequest.entity';
 import { CreateUploadRequest } from '../Models/CreateUploadRequest.entity';

@@ -6,13 +6,18 @@ describe('CreateFileFilter', () => {
   let filter: CreateFileFilter;
   const existsMock = jest.fn();
   const callback = jest.fn();
-  const requestMock = { body: { id: 'testId' } };
+  const imageId = 'testId';
+  const requestMock = {
+    body: {
+      additionalData: `{"id": "${imageId}" }`,
+    },
+  };
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
         CreateFileFilter,
-        { useValue: { exists: existsMock }, provide: ImageIndexerHttpClient },
+        { provide: ImageIndexerHttpClient, useValue: { exists: existsMock } },
       ],
     }).compile();
 
@@ -31,7 +36,7 @@ describe('CreateFileFilter', () => {
     await filter.filter(requestMock, null, callback);
 
     expect(existsMock).toBeCalledTimes(1);
-    expect(existsMock).toBeCalledWith(requestMock.body.id);
+    expect(existsMock).toBeCalledWith(imageId);
 
     expect(callback).toBeCalledTimes(1);
     expect(callback).toBeCalledWith(null, false);
@@ -44,7 +49,7 @@ describe('CreateFileFilter', () => {
     await filter.filter(requestMock, null, callback);
 
     expect(existsMock).toBeCalledTimes(1);
-    expect(existsMock).toBeCalledWith(requestMock.body.id);
+    expect(existsMock).toBeCalledWith(imageId);
 
     expect(callback).toBeCalledTimes(1);
     expect(callback).toBeCalledWith(null, true);

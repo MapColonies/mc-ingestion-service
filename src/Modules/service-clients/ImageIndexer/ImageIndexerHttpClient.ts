@@ -1,7 +1,7 @@
 import { HttpClient } from '../HttpClient';
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '../../configuration/ConfigService';
-import { ApiHttpResponse, ImageMetadata } from 'mc-model-types';
+import { ApiHttpResponse, ImageMetadata } from '@map-colonies/mc-model-types';
 
 @Injectable()
 export class ImageIndexerHttpClient extends HttpClient {

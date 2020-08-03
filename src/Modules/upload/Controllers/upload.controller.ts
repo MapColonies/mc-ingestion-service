@@ -11,15 +11,15 @@ import {
   Delete,
 } from '@nestjs/common';
 import { ApiConsumes, ApiBody, ApiTags } from '@nestjs/swagger';
+import { ResponseSchema } from '@map-colonies/mc-nest-schema-validator';
+import { ApiHttpResponse } from '@map-colonies/mc-model-types';
 import { UploadService } from '../Services/Upload.service';
 import { UpdateUploadRequest } from '../Models/UpdateUploadRequest.entity';
-import { ApiHttpResponse } from 'mc-model-types';
 import { FilteredFileInterceptorConfiguration } from '../Decorators/FilteredFileInterceptorConfiguration';
 import { FilteredFileFieldsInterceptor } from '../Interceptors/FilteredFileFieldsInterceptor';
 import { CreateFileFilter } from '../Filters/CreateFileFilter';
 import { UpdateFileFilter } from '../Filters/UpdateFileFilter';
 import { CreateUploadRequest } from '../Models/CreateUploadRequest.entity';
-import { ResponseSchema } from 'mc-nest-schema-validator';
 import { IUploadedFiles } from '../Models/IUploadedFiles';
 
 @Controller('upload')

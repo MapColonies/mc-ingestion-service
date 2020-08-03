@@ -1,7 +1,7 @@
-import { IFileFilter } from '../Models/IFileFilter';
 import { Injectable } from '@nestjs/common';
-import { ImageIndexerHttpClient } from '../../service-clients/ImageIndexer/ImageIndexerHttpClient';
 import multer from 'multer';
+import { IFileFilter } from '../Models/IFileFilter';
+import { ImageIndexerHttpClient } from '../../service-clients/ImageIndexer/ImageIndexerHttpClient';
 
 @Injectable()
 export class CreateFileFilter implements IFileFilter {

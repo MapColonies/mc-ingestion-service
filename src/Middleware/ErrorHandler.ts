@@ -8,7 +8,7 @@ import {
 } from '@nestjs/common';
 import { Request, Response } from 'express';
 import { MCLogger } from '@map-colonies/mc-logger';
-import { ApiHttpResponse, ApiHttpError } from 'mc-model-types';
+import { ApiHttpResponse, ApiHttpError } from '@map-colonies/mc-model-types';
 
 type ErrorResponse = {
   statusCode: number;
