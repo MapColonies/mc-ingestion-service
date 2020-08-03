@@ -1,6 +1,6 @@
 [template]
-src = "default.tmpl"
-dest = "/service/config/default.json"
+src = "production.tmpl"
+dest = "/config/production.json"
 keys = [
     "/configuration/host/port",
     "/configuration/storage/engine",

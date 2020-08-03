@@ -1,4 +1,10 @@
 # Custom gitignors ignores goes here, below
+config/**
+!config/test.json
+confd/**
+!confd/*.js
+!confd/*.tmpl
+!confd/*.toml
 
 #IDE
 .vscode
