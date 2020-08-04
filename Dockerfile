@@ -11,9 +11,11 @@ FROM node:12.18.1-alpine3.11 as production
 ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
 WORKDIR /usr/src/app
+COPY ./run.sh ./run.sh
+RUN chmod +x run.sh
 COPY package*.json ./
 COPY ./confd ./confd
 COPY --from=development /usr/src/app/node_modules ./node_modules
 COPY --from=development /usr/src/app/dist ./dist
-CMD ["npm","run","confd:prod","&&","node", "dist/main"]
+CMD ["./run.sh"]
 
