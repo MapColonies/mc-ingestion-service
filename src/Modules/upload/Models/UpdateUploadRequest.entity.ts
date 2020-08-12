@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { ImageMetadata } from '@map-colonies/mc-model-types';
-import { PropertySchema } from '@map-colonies/mc-nest-schema-validator';
+import { PropertySchema } from '@map-colonies/nest-schema-validator';
 import { IsOptional, ValidateNested, IsDefined } from 'class-validator';
 import { TransformMultipartObject } from '../Decorators/TransformMultipartObject';
 
