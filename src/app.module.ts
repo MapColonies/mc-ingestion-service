@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { ValidationModule } from '@map-colonies/mc-nest-schema-validator';
+import { ValidationModule } from '@map-colonies/nest-schema-validator';
 import { UploadModule } from './Modules/upload/upload.module';
 import { LoggerModule } from './Modules/logger/logger.module';
 import { ErrorHandler } from './Middleware/ErrorHandler';

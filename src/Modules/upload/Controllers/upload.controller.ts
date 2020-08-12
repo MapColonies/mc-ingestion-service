@@ -11,7 +11,7 @@ import {
   Delete,
 } from '@nestjs/common';
 import { ApiConsumes, ApiBody, ApiTags } from '@nestjs/swagger';
-import { ResponseSchema } from '@map-colonies/mc-nest-schema-validator';
+import { ResponseSchema } from '@map-colonies/nest-schema-validator';
 import { ApiHttpResponse } from '@map-colonies/mc-model-types';
 import { UploadService } from '../Services/Upload.service';
 import { UpdateUploadRequest } from '../Models/UpdateUploadRequest.entity';
