@@ -19,7 +19,8 @@
     }
   },
   "dependentServices": {
-    "imageIndexerBaseUrl": "{{ getv "/configuration/dependentServices/imageIndexerBaseUrl" "http://localhost:3001/images" }}"
+    "imageIndexerBaseUrl": "{{ getv "/configuration/dependentServices/imageIndexerBaseUrl" "http://localhost:3001/images" }}",
+    "workflowBaseUrl": "{{ getv "/configuration/dependentServices/workflowBaseUrl" "http://localhost:3009/api/v1" }}"
   },
   "logger": {
     "level": "{{ getv "/configuration/logger/level" "debug" }}",
