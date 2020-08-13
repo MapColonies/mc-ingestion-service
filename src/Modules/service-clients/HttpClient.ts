@@ -92,12 +92,16 @@ export abstract class HttpClient {
       if (err?.isAxiosError) {
         err = err as AxiosError;
         const serverError = err?.response?.data?.message;
-        const message = serverError ? err.response.statusText : serverError;
-        this.logger.info(
+        const message =
+          serverError ||
+          err?.response?.statusText ||
+          'cannot connect to service';
+        this.logger.warn(
           'received error from external service: %s',
           err.toJSON()
         );
-        throw new HttpException(message, err.response.status);
+        const status = err?.response?.status || 500;
+        throw new HttpException(message, status);
       }
     }
   }

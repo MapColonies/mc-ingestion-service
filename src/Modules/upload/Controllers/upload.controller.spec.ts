@@ -5,6 +5,7 @@ import { UploadService } from '../Services/Upload.service';
 import { ImageIndexerHttpClient } from '../../service-clients/ImageIndexer/ImageIndexerHttpClient';
 import { ConfigService } from '../../configuration/ConfigService';
 import { StorageEngineFactory } from '../../storage/StorageEngineFactory';
+import { WorkflowHttpClient } from '../../service-clients/Workflow/WorkflowHttpClient';
 
 describe('Upload Controller', () => {
   let controller: UploadController;
@@ -18,6 +19,7 @@ describe('Upload Controller', () => {
         { provide: ConfigService, useValue: {} },
         { provide: MCLogger, useValue: {} },
         { provide: StorageEngineFactory, useValue: {} },
+        { provide: WorkflowHttpClient, useValue: {} },
       ],
     }).compile();
 

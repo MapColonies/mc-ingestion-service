@@ -65,7 +65,7 @@ export class S3StorageBuilder {
       this.s3Client
         .createBucket({ Bucket: bucket })
         .promise()
-        .then(res => {
+        .then(() => {
           this.logger.info(
             `S3StorageBuilder - CreateBucketIfNotExists - created new bucket:  ${bucket}`
           );

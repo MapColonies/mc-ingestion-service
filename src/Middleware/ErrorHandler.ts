@@ -6,7 +6,7 @@ import {
   HttpStatus,
   Injectable,
 } from '@nestjs/common';
-import { Request, Response } from 'express';
+import { Response } from 'express';
 import { MCLogger } from '@map-colonies/mc-logger';
 import { ApiHttpResponse, ApiHttpError } from '@map-colonies/mc-model-types';
 
@@ -23,7 +23,6 @@ export class ErrorHandler implements ExceptionFilter {
   catch(exception: unknown, host: ArgumentsHost): void {
     const ctx = host.switchToHttp();
     const response = ctx.getResponse<Response>();
-    const request = ctx.getRequest<Request>();
 
     let status = HttpStatus.INTERNAL_SERVER_ERROR;
     const apiError: ApiHttpError = {

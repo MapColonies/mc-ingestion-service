@@ -14,6 +14,7 @@ keys = [
     "/configuration/storage/s3/apiVersion",
     "/configuration/storage/fs/uploadRoot",
     "/configuration/dependentServices/imageIndexerBaseUrl",
+    "/configuration/dependentServices/workflowBaseUrl",
     "/configuration/logger/level",
     "/configuration/logger/log2file",
     "/configuration/validation.schemaSourceRoot"

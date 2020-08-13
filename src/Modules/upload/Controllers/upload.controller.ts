@@ -35,11 +35,11 @@ export class UploadController {
     CreateFileFilter
   )
   @UseInterceptors(FilteredFileFieldsInterceptor)
-  uploadFile(
+  async uploadFile(
     @UploadedFiles() files: IUploadedFiles,
     @Body() request: CreateUploadRequest
-  ): ApiHttpResponse {
-    return this.uploadService.create(request, files);
+  ): Promise<ApiHttpResponse> {
+    return await this.uploadService.create(request, files);
   }
 
   @Get(':id')
@@ -59,11 +59,11 @@ export class UploadController {
   @ApiBody({
     type: UpdateUploadRequest,
   })
-  updateFile(
+  async updateFile(
     @Body() request: UpdateUploadRequest,
     @UploadedFiles() files: IUploadedFiles
-  ): ApiHttpResponse {
-    return this.uploadService.update(request, files);
+  ): Promise<ApiHttpResponse> {
+    return await this.uploadService.update(request, files);
   }
 
   @Delete(':id')
