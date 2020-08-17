@@ -17,6 +17,11 @@ export abstract class HttpClient {
     if (this.baseUrl) {
       url = this.joinUrl(this.baseUrl, url);
     }
+    this.logger.debug(
+      'sending http post request to: %s \n body: %s',
+      url,
+      data ? JSON.stringify(data) : null
+    );
     const req = this.httpClient.post<T>(url, data);
     const res = await this.HandleResponse(req);
     return res;
@@ -26,6 +31,11 @@ export abstract class HttpClient {
     if (this.baseUrl) {
       url = this.joinUrl(this.baseUrl, url);
     }
+    this.logger.debug(
+      'sending http put request to: %s \n body: %s',
+      url,
+      data ? JSON.stringify(data) : null
+    );
     const req = this.httpClient.put<T>(url, data);
     const res = await this.HandleResponse(req);
     return res;
@@ -35,6 +45,11 @@ export abstract class HttpClient {
     if (this.baseUrl) {
       url = this.joinUrl(this.baseUrl, url);
     }
+    this.logger.debug(
+      'sending http patch request to: %s \n body: %s',
+      url,
+      data ? JSON.stringify(data) : null
+    );
     const req = this.httpClient.patch<T>(url, data);
     const res = await this.HandleResponse(req);
     return res;
@@ -44,6 +59,7 @@ export abstract class HttpClient {
     if (this.baseUrl) {
       url = this.joinUrl(this.baseUrl, url);
     }
+    this.logger.debug('sending http get request to: %s', url);
     const req = this.httpClient.get<T>(url);
     const res = await this.HandleResponse(req);
     return res;
@@ -53,6 +69,7 @@ export abstract class HttpClient {
     if (this.baseUrl) {
       url = this.joinUrl(this.baseUrl, url);
     }
+    this.logger.debug('sending http delete request to: %s', url);
     const req = this.httpClient.delete<T>(url);
     const res = await this.HandleResponse(req);
     return res;
@@ -62,6 +79,7 @@ export abstract class HttpClient {
     if (this.baseUrl) {
       url = this.joinUrl(this.baseUrl, url);
     }
+    this.logger.debug('sending http head request to: %s', url);
     const req = this.httpClient.head<T>(url);
     const res = await this.HandleResponse(req);
     return res;
@@ -87,7 +105,12 @@ export abstract class HttpClient {
   ): Promise<AxiosResponse<T>> {
     const promise = request.toPromise();
     try {
-      return await promise;
+      const res = await promise;
+      this.logger.debug(
+        'received response from external service: %s',
+        res.data ? JSON.stringify(res.data) : null
+      );
+      return res;
     } catch (err) {
       if (err?.isAxiosError) {
         err = err as AxiosError;
