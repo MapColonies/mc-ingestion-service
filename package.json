@@ -35,7 +35,7 @@
     "axios": "^0.19.2",
     "class-transformer": "^0.3.1",
     "class-validator": "^0.12.2",
-    "config": "^3.3.1",
+    "config": "^3.3.3",
     "file-uri-to-path": "^2.0.0",
     "fs-extra": "^9.0.1",
     "lodash": "^4.17.20",
