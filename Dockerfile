@@ -7,7 +7,7 @@ RUN npm run build
 RUN rm -r ./node_modules && npm install --only=production
 
 
-FROM node:12.18.1-alpine3.11 as production
+FROM node:12-alpine3.11 as production
 ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
 WORKDIR /usr/src/app
